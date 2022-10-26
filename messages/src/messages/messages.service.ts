@@ -17,7 +17,11 @@ export class MessagesService {
     return this.messagesRepo.findOne(id);
   }
 
-  create(content: string) {
+  async create(content: string) {
     return this.messagesRepo.create(content);
+  }
+
+  async delete(id: string) {
+    return this.messagesRepo.delete(id);
   }
 }

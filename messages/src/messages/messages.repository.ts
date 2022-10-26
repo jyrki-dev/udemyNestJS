@@ -22,4 +22,11 @@ export class MessagesRepository {
     messages[id] = { id, content };
     await writeFile('messages.json', JSON.stringify(messages));
   }
+
+  async delete(id: string) {
+    const contents = await readFile('messages.json', 'utf8');
+    const messages = JSON.parse(contents);
+    delete messages[id];
+    await writeFile('messages.json', JSON.stringify(messages));
+  }
 }
